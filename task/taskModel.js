@@ -3,7 +3,6 @@ const db = require("../data/dbConfig");
 module.exports = {
     add,
     find,
-    // findBy,
     findById,
     update,
     remove
@@ -14,11 +13,10 @@ function find(){
     .select(
         "tasks.id",
         "tasks.project_id",
-        "projects.name",
-        "projects.project_description",
-        "tasks.description",
+        "projects.project_name",
+        "tasks.task_description",
         "tasks.notes",
-        "tasks.complete"
+        "tasks.task_complete"
     )
     .orderBy("tasks.id")
 }
