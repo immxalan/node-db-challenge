@@ -3,14 +3,14 @@ exports.up = function(knex) {
   return knex.schema
   .createTable("projects", t => {
       t.increments();
-      t.varchar("name").notNullable();
-      t.varchar("description");
-      t.boolean("complete").notNullable().defaultTo(false)
+      t.varchar("project_name").notNullable();
+      t.varchar("project_description");
+      t.boolean("project_complete").notNullable().defaultTo(false)
   })
   .createTable("resources", t =>{
       t.increments();
-      t.varchar("name").notNullable().unique();
-      t.varchar("description")
+      t.varchar("resource_name").notNullable().unique();
+      t.varchar("resource_description")
   })
   .createTable("project_resources", t =>{
       t.increments();
@@ -21,9 +21,9 @@ exports.up = function(knex) {
   .createTable("tasks", t =>{
       t.increments();
       t.integer("project_id").unsigned().notNullable().references("id").inTable("projects").onUpdate("CASCADE").onDelete("RESTRICT");
-      t.varchar("description").notNullable();
+      t.varchar("task_description").notNullable();
       t.varchar("notes");
-      t.boolean("complete").notNullable().defaultTo(false)
+      t.boolean("task_complete").notNullable().defaultTo(false)
   })
 };
 

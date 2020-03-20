@@ -15,6 +15,7 @@ function find(){
         "tasks.id",
         "tasks.project_id",
         "projects.name",
+        "projects.project_description",
         "tasks.description",
         "tasks.notes",
         "tasks.complete"

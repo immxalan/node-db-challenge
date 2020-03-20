@@ -35,9 +35,9 @@ function findTasks (id){
         "tasks.id",
         "tasks.project_id",
         "projects.name",
-        "tasks.description",
+        "tasks.task_description",
         "tasks.notes",
-        "tasks.complete"
+        "tasks.task_complete"
     )
     .orderBy("tasks.id")
     .where("projects.id", id)
