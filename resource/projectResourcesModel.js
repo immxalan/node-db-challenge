@@ -21,24 +21,24 @@ function find(){
     .orderBy("project_resources.id")
 }
 
-async function add(task) {
-    const [id] = await db("tasks").insert(task);
+async function add(pr) {
+    const [id] = await db("project_resources").insert(pr);
     return findById(id);
 }
 
 function findById(id){
-    return db("tasks")
+    return db("project_resources")
     .where({ id })
     .first();
 }
 function remove(id){
-    return db("tasks")
+    return db("project_resources")
     .where("id", Number(id))
     .del();
 }
 
 function update(changes, id) {
-    return db("tasks")
+    return db("project_resources")
     .where({id})
     .where(changes)
 }
