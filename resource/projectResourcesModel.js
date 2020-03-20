@@ -8,17 +8,17 @@ module.exports = {
     remove
 }
 function find(){
-    return db("tasks")
-    .join("projects", "tasks.project_id", "projects.id")
+    return db("project_resources")
+    .join("projects", "project_resources.project_id", "projects.id")
+    .join("resources", "project_resources.resource_id", "resources.id" )
     .select(
-        "tasks.id",
-        "tasks.project_id",
+        "project_resources.id",
+        "project_resources.project_id",
         "projects.project_name",
-        "tasks.task_description",
-        "tasks.notes",
-        "tasks.task_complete"
+        "project_resources.resource_id",
+        "resources.resource_name"
     )
-    .orderBy("tasks.id")
+    .orderBy("project_resources.id")
 }
 
 async function add(task) {

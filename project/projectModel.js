@@ -34,7 +34,7 @@ function findTasks (id){
     .select(
         "tasks.id",
         "tasks.project_id",
-        "projects.name",
+        "projects.project_name",
         "tasks.task_description",
         "tasks.notes",
         "tasks.task_complete"
